@@ -1,8 +1,10 @@
 const wrapper = document.querySelector('.project-wrapper');
+const miniBlock = document.createElement('div');
 
-if (wrapper.hasChilddNodes() = FALSE){
-    while (wrapper.childElementCount > 256){
-        
-    }
-}
+
+   for (let i = 0; i < 256; i++){
+    wrapper.appendChild(miniBlock);
+    miniBlock.classList.add('mini-block');
+   }
+
 
