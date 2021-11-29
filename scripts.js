@@ -1,10 +1,19 @@
 const wrapper = document.querySelector('.project-wrapper');
-const miniBlock = document.createElement('div');
+
+for (let i = 0; i <= 255; i++){
+  const miniBlock = document.createElement('div');
+  wrapper.appendChild(miniBlock);
+  miniBlock.classList.add('mini-block', 'grid-items');
+}
 
 
-   for (let i = 0; i < 256; i++){
-    wrapper.appendChild(miniBlock);
-    miniBlock.classList.add('mini-block');
-   }
+
+// let i = 0;
+// do {
+//   wrapper.appendChild(miniBlock);
+//   miniBlock.classList.add('mini-block');
+//   i++;
+// } while (i <= 10);
 
 
+ 

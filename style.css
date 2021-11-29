@@ -1,0 +1,14 @@
+.project-wrapper{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    width: 75vh;
+    height: auto; 
+}
+
+.grid-items{
+    grid-row-start: auto;
+    grid-row-end: auto;
+    grid-column-start: auto;
+    grid-column-end: auto;
+}
