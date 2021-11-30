@@ -6,6 +6,14 @@ for (let i = 0; i <= 255; i++){
   miniBlock.classList.add('mini-block', 'grid-items');
 }
 
+const etchBlocks = document.querySelectorAll('miniBlock');
+
+etchBlocks.forEach((miniBlock) => {
+  etchBlocks.addEventListener('hover', () => {
+    etchBlocks.classList.add('active-etch-block')
+  });
+});
+
 
 
 // let i = 0;
