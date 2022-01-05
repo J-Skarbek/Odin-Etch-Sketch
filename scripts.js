@@ -12,8 +12,8 @@ for (let i = 0; i <= 255; i++){
 
 document.getElementById("clear-grid").addEventListener("click", function() {
   const clearGrid = document.getElementsByClassName('active-etch-block');
-  for (let i = 0; i <= 255; i++){
-    clearGrid.classList.remove('active-etch-block');
+  for (let i = 0; i <= clearGrid.length; i++){
+    clearGrid[i].classList.remove('active-etch-block');
   }
 });
 
