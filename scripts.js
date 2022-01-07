@@ -11,37 +11,19 @@ for (let i = 0; i <= 255; i++){
 }
 
 document.getElementById("clear-grid").addEventListener("click", function() {
-  const clearGrid = document.getElementsByClassName('active-etch-block');
-  for (let i = 0; i <= clearGrid.length; i++){
-    clearGrid[i].classList.remove('active-etch-block');
-  }
+  const clearGrid = Array.from(document.getElementsByClassName('active-etch-block'));
+    clearGrid.forEach(clearGrid => {
+    clearGrid.classList.remove('active-etch-block');
+  })
 });
 
-// function clearGrid() {
-//   miniBlock.classList.remove('active-etch-block');
-// };
+// clearGrid.forEach(clearGrid => {
+//   clearGrid.classList.remove('active-etch-block');
+// })
 
-// document.getElementById("clear-grid").onclick = clearGrid();
-
-
-
-// let etchBlocks = document.getElementsByClassName('miniBlock')[1];
-// etchBlocks.addEventListener('mouseover', () => {
-//   miniBlock.classList.add('active-etch-block');
+// document.getElementById("clear-grid").addEventListener("click", function() {
+//   const clearGrid = document.getElementsByClassName('active-etch-block');
+//   for (let i = 0; i <= clearGrid.length; i++){
+//     clearGrid[i].classList.remove('active-etch-block');
+//   }
 // });
-
-
-// etchBlocks.forEach((miniBlock) => {
-//   miniBlock.addEventListener('mouseover', () => {
-//     miniBlock.classList.add('active-etch-block');
-//   });
-// });
-
-
-// const etchBlocks = document.querySelectorAll('.miniBlock');
-
-// etchBlocks.addEventListener('mouseover', () => {
-//   miniBlock.classList.add('active-etch-block');
-// });
-
-
