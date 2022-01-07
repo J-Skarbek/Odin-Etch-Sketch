@@ -17,13 +17,3 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   })
 });
 
-// clearGrid.forEach(clearGrid => {
-//   clearGrid.classList.remove('active-etch-block');
-// })
-
-// document.getElementById("clear-grid").addEventListener("click", function() {
-//   const clearGrid = document.getElementsByClassName('active-etch-block');
-//   for (let i = 0; i <= clearGrid.length; i++){
-//     clearGrid[i].classList.remove('active-etch-block');
-//   }
-// });
