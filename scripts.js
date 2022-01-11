@@ -1,4 +1,5 @@
 const wrapper = document.querySelector('.project-wrapper');
+let gridSizeTest = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(25, 1fr)";;
 let miniBlock = document.createElement('div');
 
 for (let i = 0; i <= 255; i++){
@@ -18,10 +19,20 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 100)");
   let gridDimensions = sizeDeclaration * sizeDeclaration;
   console.log(gridDimensions);
-  function sizeCalc(){
-    gridsize = document.getElementsByClassName('project-wrapper').style.gridTemplateRows = "repeat(sizeDelcaration, 1fr)";
-
-
+  function gridSizing(){
+    let gridDivNumeration = document.getElementsByClassName('project-wrapper');
+    gridDivNumeration.style.gridTemplateRows = "repeat(" + sizeDeclaration + ", 1fr)";
+    console.log(sizeDeclaration);
   };
+
+  // let gridSize = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(99, 1fr)";
+  //   console.log(gridSize);
+
+  // function sizeCalc(){
+  //   let gridSize = document.queryselector('.project-wrapper').style.gridTemplateRows = "repeat(99, 1fr)";
+  //   console.log(gridSize);
+
+
+  // };
 });
 
