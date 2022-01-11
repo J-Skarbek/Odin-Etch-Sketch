@@ -15,5 +15,13 @@ document.getElementById("clear-grid").addEventListener("click", function() {
     clearGrid.forEach(clearGrid => {
     clearGrid.classList.remove('active-etch-block');
   })
+  let sizeDeclaration = prompt("How big of a grid do you want? (max = 100)");
+  let gridDimensions = sizeDeclaration * sizeDeclaration;
+  console.log(gridDimensions);
+  function sizeCalc(){
+    gridsize = document.getElementsByClassName('project-wrapper').style.gridTemplateRows = "repeat(sizeDelcaration, 1fr)";
+
+
+  };
 });
 
