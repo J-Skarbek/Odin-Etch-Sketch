@@ -1,15 +1,19 @@
 const wrapper = document.querySelector('.project-wrapper');
 // let gridSizeTest = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(25, 1fr)";
 let miniBlock = document.createElement('div');
+initGrid();
 
-for (let i = 0; i <= 255; i++){
-  let miniBlock = document.createElement('div');
-  wrapper.appendChild(miniBlock);
-  miniBlock.classList.add('miniBlock', 'grid-items');
-  miniBlock.addEventListener('mouseover', () => {
-  miniBlock.classList.add('active-etch-block');
-  });
-}
+
+function initGrid(){
+  for (let i = 0; i <= 255; i++){
+    let miniBlock = document.createElement('div');
+    wrapper.appendChild(miniBlock);
+    miniBlock.classList.add('miniBlock', 'grid-items');
+    miniBlock.addEventListener('mouseover', () => {
+    miniBlock.classList.add('active-etch-block');
+    });
+  }
+};
 
 document.getElementById("clear-grid").addEventListener("click", function() {
   const clearGrid = Array.from(document.getElementsByClassName('active-etch-block'));
@@ -17,8 +21,8 @@ document.getElementById("clear-grid").addEventListener("click", function() {
     clearGrid.classList.remove('active-etch-block');
   })
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 100)");
-  let gridDimensions = sizeDeclaration * sizeDeclaration;
-  console.log(gridDimensions);
+  // let gridDimensions = sizeDeclaration * sizeDeclaration;
+  // console.log(gridDimensions);
   function gridSizing(){
     let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
     gridDivNumeration.style.gridTemplateRows = "repeat(" + sizeDeclaration + ", 1fr)";
@@ -28,14 +32,4 @@ document.getElementById("clear-grid").addEventListener("click", function() {
 
 });
 
-  // let gridSize = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(99, 1fr)";
-  //   console.log(gridSize);
-
-  // function sizeCalc(){
-  //   let gridSize = document.queryselector('.project-wrapper').style.gridTemplateRows = "repeat(99, 1fr)";
-  //   console.log(gridSize);
-
-
-  // };
-
-
+  
