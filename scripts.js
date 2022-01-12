@@ -1,5 +1,5 @@
 const wrapper = document.querySelector('.project-wrapper');
-let gridSizeTest = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(25, 1fr)";;
+// let gridSizeTest = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(25, 1fr)";
 let miniBlock = document.createElement('div');
 
 for (let i = 0; i <= 255; i++){
@@ -20,10 +20,13 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   let gridDimensions = sizeDeclaration * sizeDeclaration;
   console.log(gridDimensions);
   function gridSizing(){
-    let gridDivNumeration = document.getElementsByClassName('project-wrapper');
+    let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
     gridDivNumeration.style.gridTemplateRows = "repeat(" + sizeDeclaration + ", 1fr)";
     console.log(sizeDeclaration);
   };
+  gridSizing();
+
+});
 
   // let gridSize = document.querySelector('.project-wrapper').style.gridTemplateRows = "repeat(99, 1fr)";
   //   console.log(gridSize);
@@ -34,5 +37,5 @@ document.getElementById("clear-grid").addEventListener("click", function() {
 
 
   // };
-});
+
 
