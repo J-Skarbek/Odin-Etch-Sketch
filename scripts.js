@@ -20,7 +20,12 @@ document.getElementById("clear-grid").addEventListener("click", function() {
     clearGrid.forEach(clearGrid => {
     clearGrid.classList.remove('active-etch-block');
   })
-  let sizeDeclaration = prompt("How big of a grid do you want? (max = 25)");
+  let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)");
+
+  // if (sizeDeclaration > 50){
+  //   let sizeDeclaration = prompt("Error - too many squares! Pick a value less than 50.");
+  //   return sizeDeclaration;
+  // };
  
   function gridSizing(){
     let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
