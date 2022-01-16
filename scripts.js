@@ -5,7 +5,7 @@ initGrid();
 
 
 function initGrid(){
-  for (let i = 0; i <= 255; i++){
+  for (let i = 0; i <= 2499; i++){
     let miniBlock = document.createElement('div');
     wrapper.appendChild(miniBlock);
     miniBlock.classList.add('miniBlock', 'grid-items');
@@ -20,16 +20,17 @@ document.getElementById("clear-grid").addEventListener("click", function() {
     clearGrid.forEach(clearGrid => {
     clearGrid.classList.remove('active-etch-block');
   })
-  let sizeDeclaration = prompt("How big of a grid do you want? (max = 100)");
-  // let gridDimensions = sizeDeclaration * sizeDeclaration;
-  // console.log(gridDimensions);
+  let sizeDeclaration = prompt("How big of a grid do you want? (max = 25)");
+ 
   function gridSizing(){
     let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
-    gridDivNumeration.style.gridTemplateRows = "repeat(" + sizeDeclaration + ", 1fr)";
     console.log(sizeDeclaration);
   };
+
   gridSizing();
 
 });
+
+
 
   
