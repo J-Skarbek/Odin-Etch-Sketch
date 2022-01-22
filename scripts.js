@@ -23,9 +23,7 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   });
 
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)");
-
-  if (sizeDeclaration > 50){
-    
+  if (sizeDeclaration > 50){    
     alert ("Error - too many squares! Pick a value less than 50.");
     sizeDeclaration = '';
     sizeDeclaration = prompt("How big of a grid do you want? (max = 50)");
@@ -39,7 +37,5 @@ document.getElementById("clear-grid").addEventListener("click", function() {
     let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
     console.log(sizeDeclaration);
   };
-
-  gridSizing();
-
+  
 });
