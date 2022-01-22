@@ -15,17 +15,25 @@ function initGrid(){
   }
 };
 
+
 document.getElementById("clear-grid").addEventListener("click", function() {
   const clearGrid = Array.from(document.getElementsByClassName('active-etch-block'));
     clearGrid.forEach(clearGrid => {
     clearGrid.classList.remove('active-etch-block');
-  })
+  });
+
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)");
 
-  // if (sizeDeclaration > 50){
-  //   let sizeDeclaration = prompt("Error - too many squares! Pick a value less than 50.");
-  //   return sizeDeclaration;
-  // };
+  if (sizeDeclaration > 50){
+    
+    alert ("Error - too many squares! Pick a value less than 50.");
+    sizeDeclaration = '';
+    sizeDeclaration = prompt("How big of a grid do you want? (max = 50)");
+    console.log(sizeDeclaration);
+    gridSizing();
+  } else {
+    gridSizing();
+  };
  
   function gridSizing(){
     let gridDivNumeration = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);";
@@ -35,7 +43,3 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   gridSizing();
 
 });
-
-
-
-  
