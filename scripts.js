@@ -62,3 +62,4 @@ document.getElementById("clear-grid").addEventListener("click", function() {
   };
 
 });
+
