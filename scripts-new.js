@@ -52,20 +52,30 @@ let etchSizeDeclaration = () => {
 }
 
 let etchGridSizing = (sizeDeclaration) => {
-  let etchCells = document.querySelector('.project-wrapper').style.cssText = "grid-template-rows:repeat(" + sizeDeclaration + ", 1fr); grid-template-columns:repeat(" + sizeDeclaration + ", 1fr);"
+  let etchCells = document.querySelector('.project-wrapper').style.cssText = `grid-template-rows:repeat(${sizeDeclaration}, 1fr); grid-template-columns:repeat(${sizeDeclaration}, 1fr);`
   return etchCells
 }
 
-let etchCellCreation = () => {
-  let sum = sizeDeclaration * sizeDeclaration
-  return sum
+let colorModeActivate = () => {
+  clearTheGrid()
+  etchSizeDeclaration()
+  colorize()
 }
 
-// let colorModeActivate = () => {
-//   clearTheGrid()
-
-// }
+let colorize = () => {
+  const rgbBlocks = Array.from(document.getElementsByClassName('miniBlock'))
+  rgbBlocks.forEach(rgbBlocks => {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    rgbBlocks.style.cssText = `background-color: rgb(${r}, ${g}, ${b})`
+  })
+}
 
 window.addEventListener('load', gridInitialize)
+
 clearGrid.addEventListener('click', clearTheGrid)
 clearGrid.addEventListener('click', etchSizeDeclaration)
+
+colorMode.addEventListener('click', clearTheGrid)
+colorMode.addEventListener('click', colorModeActivate)
