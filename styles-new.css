@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -45,4 +45,91 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+:root {
+    --white: #fff;
+    --off-white: #EEF9FB;
+    --off-white-bl: #B3F7FA;
+    --off-white-gr: #A9FDD2;
+    --black: #000;
+    --dark-blue: #2371FD;
+    --mid-blue: #2099E3;
+    --bright-blue: #2FE1FA;
+    --aquamarine: #20E3C4;
+    --green: #23FD9D;
+}
+
+body {
+    background-color: var(--off-white-bl);
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+
+a,
+span,
+link,
+p {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(50px, 1fr));
+    grid-template-rows: repeat(12, minmax(50px, 1fr));
+    margin: 15px 50px;
+}
+
+.title-bar {
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+}
+
+.buttons-bar {
+    grid-column: 1 / span 12;
+    grid-row: 2 / span 1;
+}
+
+.etch-viewport {
+    grid-column: 4 / span 6;
+    grid-row: 3 / span 5;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-template-rows: repeat(4, minmax(50px, 1fr));
+
+}
+
+.footer-area {
+    grid-column: 1 / span 12;
+    grid-row: 9 / span 1;
+}
+
+
+/* Etch viewport styles */
+
+.project-wrapper{
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 4;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    background-color: var(--off-white);
+    border: 5px solid #333333;    
+}
+
+.active-etch-block{
+    background-color: #000;
 }
