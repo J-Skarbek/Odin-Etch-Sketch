@@ -67,6 +67,7 @@ body {
 h1 {
     font-family: 'Rubik', sans-serif;
     font-weight: 800;
+    font-size: 3rem;
 }
 
 h2,
@@ -79,6 +80,7 @@ h6 {
 }
 
 a,
+button,
 span,
 link,
 p {
@@ -89,23 +91,50 @@ p {
 .project-container {
     display: grid;
     grid-template-columns: repeat(12, minmax(50px, 1fr));
-    grid-template-rows: repeat(12, minmax(50px, 1fr));
+    grid-template-rows: repeat(12, minmax(75px, 1fr));
     margin: 15px 50px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title-bar {
     grid-column: 1 / span 12;
     grid-row: 1 / span 1;
+    
 }
 
 .buttons-bar {
     grid-column: 1 / span 12;
     grid-row: 2 / span 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.buttons-bar > button {
+    min-width: 150px;
+    padding: 5px 10px;
+    color: var(--white);
+    background-color: var(--dark-blue);
+    border: 2px var(--white) solid;
+    border-radius: 25px;
+}
+
+.buttons-bar > button:hover {
+    color: var(--dark-blue);
+    background-color: var(--white);
+    border-color: var(--dark-blue);
 }
 
 .etch-viewport {
     grid-column: 4 / span 6;
-    grid-row: 3 / span 5;
+    grid-row: 3 / span 8;
     display: grid;
     grid-template-columns: repeat(4, minmax(50px, 1fr));
     grid-template-rows: repeat(4, minmax(50px, 1fr));
@@ -114,8 +143,10 @@ p {
 
 .footer-area {
     grid-column: 1 / span 12;
-    grid-row: 9 / span 1;
+    grid-row: 12 / span 1;
 }
+
+
 
 
 /* Etch viewport styles */
