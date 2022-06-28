@@ -51,6 +51,26 @@ let etchSizeDeclaration = () => {
   }
 }
 
+// Testing validation to get the prompt to only accpet 50 or less as an input after the 1st try
+// let validateInput = (sizeDeclaration) => {
+//   if (sizeDeclaration > 50){    
+//     alert ("Error - too many squares! Pick a value less than 50.")
+//     sizeDeclaration = ''
+//     sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
+//     validateInput()
+//   } else {
+//     return sizeDeclaration
+//   }
+// }
+
+// let etchSizeDeclaration = () => {
+//   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
+//   validateInput(sizeDeclaration)
+//   etchGridSizing(sizeDeclaration)
+//   let cellSum = sizeDeclaration * sizeDeclaration
+//   newGridInitialize(cellSum)
+// }
+
 let etchGridSizing = (sizeDeclaration) => {
   let etchCells = document.querySelector('.project-wrapper').style.cssText = `grid-template-rows:repeat(${sizeDeclaration}, 1fr); grid-template-columns:repeat(${sizeDeclaration}, 1fr);`
   return etchCells

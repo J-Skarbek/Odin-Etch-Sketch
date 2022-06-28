@@ -165,3 +165,7 @@ p {
 .active-etch-block{
     background-color: var(--black);
 }
+
+.colorized-active-etch-block {
+    background-color: var(--white);
+}
