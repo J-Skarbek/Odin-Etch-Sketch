@@ -119,11 +119,12 @@ p {
 
 .buttons-bar > button {
     min-width: 150px;
-    padding: 5px 10px;
+    padding: 2px 15px;
+    font-size: 1rem;
     color: var(--white);
     background-color: var(--dark-blue);
     border: 2px var(--white) solid;
-    border-radius: 25px;
+    border-radius: 23px;
 }
 
 .buttons-bar > button:hover {
@@ -162,5 +163,5 @@ p {
 }
 
 .active-etch-block{
-    background-color: #000;
+    background-color: var(--black);
 }
