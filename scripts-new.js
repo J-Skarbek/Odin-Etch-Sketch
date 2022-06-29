@@ -1,9 +1,10 @@
 const clearGrid = document.getElementById('btn-1')
 const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
+const wrapper = document.getElementById('project-wrapper');
 
-let createEtchElements = () => {
-  let wrapper = document.getElementById('project-wrapper');
+let createEtchElements = (wrapper) => {
+  // let wrapper = document.getElementById('project-wrapper');
   let miniBlock = document.createElement('div');
   wrapper.appendChild(miniBlock)
   miniBlock.classList.add('miniBlock', 'grid-items')
@@ -17,21 +18,25 @@ let clearTheGrid = () => {
   clearElements.forEach(clearElements => {
     clearElements.classList.remove('active-etch-block')
   })
-  // let gridDivs = document.getElementById('project-wrapper');
-  // while (gridDivs.firstChild) {
-  //   gridDivs.removeChild(miniBlock)
-  // }
+  removeCells(wrapper)
 }
+
+let removeCells = (wrapper) => {
+  while (wrapper.firstChild) {
+    wrapper.removeChild(wrapper.firstChild)
+  };
+}
+
 
 let gridInitialize = () => {
   for (let i = 0; i <= 256; i++) {
-    createEtchElements()
+    createEtchElements(wrapper)
   }
 }
 
 let newGridInitialize = (cellSum) => {
   for (let i = 0; i <= cellSum; i++) {
-    createEtchElements()
+    createEtchElements(wrapper)
   }
 }
 
