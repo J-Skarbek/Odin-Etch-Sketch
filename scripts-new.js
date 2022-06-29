@@ -3,6 +3,10 @@ const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
 const wrapper = document.getElementById('project-wrapper');
 
+let standardEtch = true
+let colorEtch = false
+let blackWhiteEtch = false
+
 let createEtchElements = (wrapper) => {
   // let wrapper = document.getElementById('project-wrapper');
   let miniBlock = document.createElement('div');
@@ -11,6 +15,16 @@ let createEtchElements = (wrapper) => {
   miniBlock.addEventListener('mouseover', () => {
     miniBlock.classList.add('active-etch-block')
   })
+}
+
+let createColoredEtchElements = (wrapper) => {
+  let miniBlock = document.createElement('div');
+  wrapper.appendChild(miniBlock)
+  miniBlock.classList.add('miniBlock', 'grid-items')
+  miniBlock.addEventListener('mouseover', () => {
+    miniBlock.classList.add('colorized-active-etch-block')
+  })
+  miniBlock.addEventListener('mouseover', colorize)
 }
 
 let clearTheGrid = () => {
@@ -27,7 +41,6 @@ let removeCells = (wrapper) => {
   };
 }
 
-
 let gridInitialize = () => {
   for (let i = 0; i <= 256; i++) {
     createEtchElements(wrapper)
@@ -36,7 +49,7 @@ let gridInitialize = () => {
 
 let newGridInitialize = (cellSum) => {
   for (let i = 0; i <= cellSum; i++) {
-    createEtchElements(wrapper)
+    createColoredEtchElements(wrapper)
   }
 }
 
@@ -83,12 +96,14 @@ let etchGridSizing = (sizeDeclaration) => {
 
 let colorModeActivate = () => {
   clearTheGrid()
+  colorEtch = true
+  standardEtch = false
+  blackWhiteEtch = false
   etchSizeDeclaration()
-  colorize()
 }
 
 let colorize = () => {
-  const rgbBlocks = Array.from(document.getElementsByClassName('miniBlock'))
+  const rgbBlocks = Array.from(document.getElementsByClassName('colorized-active-etch-block'))
   rgbBlocks.forEach(rgbBlocks => {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
