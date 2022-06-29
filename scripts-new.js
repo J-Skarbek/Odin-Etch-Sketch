@@ -42,13 +42,19 @@ let removeCells = (wrapper) => {
 }
 
 let gridInitialize = () => {
-  for (let i = 0; i <= 256; i++) {
+  for (let i = 0; i <= 255; i++) {
     createEtchElements(wrapper)
   }
 }
 
 let newGridInitialize = (cellSum) => {
-  for (let i = 0; i <= cellSum; i++) {
+  for (let i = 0; i < cellSum; i++) {
+    createEtchElements(wrapper)
+  }
+}
+
+let newColorGridInitialize = (cellSum) => {
+  for (let i = 0; i < cellSum; i++) {
     createColoredEtchElements(wrapper)
   }
 }
