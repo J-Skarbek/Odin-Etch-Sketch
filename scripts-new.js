@@ -1,13 +1,13 @@
 const clearGrid = document.getElementById('btn-1')
 const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
-const wrapper = document.getElementById('project-wrapper');
+const wrapper = document.getElementById('project-wrapper')
 
 let standardEtch = true
 let colorEtch = false
 let blackWhiteEtch = false
 
-let createEtchElements = (wrapper) => {
+const createEtchElements = (wrapper) => {
   // let wrapper = document.getElementById('project-wrapper');
   let miniBlock = document.createElement('div');
   wrapper.appendChild(miniBlock)
@@ -17,7 +17,7 @@ let createEtchElements = (wrapper) => {
   })
 }
 
-let createColoredEtchElements = (wrapper) => {
+const createColoredEtchElements = (wrapper) => {
   let miniBlock = document.createElement('div');
   wrapper.appendChild(miniBlock)
   miniBlock.classList.add('miniBlock', 'grid-items')
@@ -27,7 +27,7 @@ let createColoredEtchElements = (wrapper) => {
   miniBlock.addEventListener('mouseover', colorize)
 }
 
-let clearTheGrid = () => {
+const clearTheGrid = () => {
   const clearElements = Array.from(document.getElementsByClassName('active-etch-block'))
   clearElements.forEach(clearElements => {
     clearElements.classList.remove('active-etch-block')
@@ -35,72 +35,53 @@ let clearTheGrid = () => {
   removeCells(wrapper)
 }
 
-let removeCells = (wrapper) => {
+const removeCells = (wrapper) => {
   while (wrapper.firstChild) {
     wrapper.removeChild(wrapper.firstChild)
   };
 }
 
-let gridInitialize = () => {
+const gridInitialize = () => {
   for (let i = 0; i <= 255; i++) {
     createEtchElements(wrapper)
   }
 }
 
-let newGridInitialize = (cellSum) => {
+const newGridInitialize = (cellSum) => {
   for (let i = 0; i < cellSum; i++) {
     createEtchElements(wrapper)
   }
 }
 
-let newColorGridInitialize = (cellSum) => {
+const newColorGridInitialize = (cellSum) => {
   for (let i = 0; i < cellSum; i++) {
     createColoredEtchElements(wrapper)
   }
 }
 
-let etchSizeDeclaration = () => {
+const etchSizeDeclaration = () => {
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
-  if (sizeDeclaration > 50){    
-    alert ("Error - too many squares! Pick a value less than 50.")
-    sizeDeclaration = ''
-    sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
+  validateInput(sizeDeclaration)
+}
+
+const validateInput = (sizeDeclaration) => {
+  if (sizeDeclaration < 50) {
     etchGridSizing(sizeDeclaration)
     let cellSum = sizeDeclaration * sizeDeclaration
     newGridInitialize(cellSum)
   } else {
-    etchGridSizing(sizeDeclaration)
-    let cellSum = sizeDeclaration * sizeDeclaration
-    newGridInitialize(cellSum)
+    alert ("Error - too many squares! Pick a value less than 50.")
+    let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
+    validateInput(sizeDeclaration)
   }
 }
 
-// Testing validation to get the prompt to only accpet 50 or less as an input after the 1st try
-// let validateInput = (sizeDeclaration) => {
-//   if (sizeDeclaration > 50){    
-//     alert ("Error - too many squares! Pick a value less than 50.")
-//     sizeDeclaration = ''
-//     sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
-//     validateInput()
-//   } else {
-//     return sizeDeclaration
-//   }
-// }
-
-// let etchSizeDeclaration = () => {
-//   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
-//   validateInput(sizeDeclaration)
-//   etchGridSizing(sizeDeclaration)
-//   let cellSum = sizeDeclaration * sizeDeclaration
-//   newGridInitialize(cellSum)
-// }
-
-let etchGridSizing = (sizeDeclaration) => {
+const etchGridSizing = (sizeDeclaration) => {
   let etchCells = document.querySelector('.project-wrapper').style.cssText = `grid-template-rows:repeat(${sizeDeclaration}, 1fr); grid-template-columns:repeat(${sizeDeclaration}, 1fr);`
   return etchCells
 }
 
-let colorModeActivate = () => {
+const colorModeActivate = () => {
   clearTheGrid()
   colorEtch = true
   standardEtch = false
@@ -108,7 +89,7 @@ let colorModeActivate = () => {
   etchSizeDeclaration()
 }
 
-let colorize = () => {
+const colorize = () => {
   const rgbBlocks = Array.from(document.getElementsByClassName('colorized-active-etch-block'))
   rgbBlocks.forEach(rgbBlocks => {
     const r = Math.floor(Math.random() * 256)
