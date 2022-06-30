@@ -15,9 +15,10 @@ const createEtchElements = (wrapper) => {
     miniBlock.addEventListener('mouseover', () => {
       miniBlock.classList.add('active-etch-block')
     })
-  } else if (standardEtch === false && colorEtch === true && blackWhiteEtch === false) {
+  } else if (colorEtch === true && standardEtch === false && blackWhiteEtch === false) {
     miniBlock.addEventListener('mouseover', () => {
       miniBlock.classList.add('colorized-active-etch-block')
+      colorize()
     })
   } else {
     miniBlock.addEventListener('mouseover', () => {
@@ -90,6 +91,14 @@ const etchGridSizing = (sizeDeclaration) => {
   return etchCells
 }
 
+const normalModeActivate = () => {
+  clearTheGrid()
+  colorEtch = false
+  standardEtch = true
+  blackWhiteEtch = false
+  etchSizeDeclaration()
+}
+
 const colorModeActivate = () => {
   clearTheGrid()
   colorEtch = true
@@ -111,7 +120,7 @@ const colorize = () => {
 window.addEventListener('load', gridInitialize)
 
 clearGrid.addEventListener('click', clearTheGrid)
-clearGrid.addEventListener('click', etchSizeDeclaration)
+clearGrid.addEventListener('click', normalModeActivate)
 
 colorMode.addEventListener('click', clearTheGrid)
 colorMode.addEventListener('click', colorModeActivate)
