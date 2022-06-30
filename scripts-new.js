@@ -8,13 +8,22 @@ let colorEtch = false
 let blackWhiteEtch = false
 
 const createEtchElements = (wrapper) => {
-  // let wrapper = document.getElementById('project-wrapper');
   let miniBlock = document.createElement('div');
   wrapper.appendChild(miniBlock)
   miniBlock.classList.add('miniBlock', 'grid-items')
-  miniBlock.addEventListener('mouseover', () => {
-    miniBlock.classList.add('active-etch-block')
-  })
+  if (standardEtch === true && colorEtch === false && blackWhiteEtch === false) {
+    miniBlock.addEventListener('mouseover', () => {
+      miniBlock.classList.add('active-etch-block')
+    })
+  } else if (standardEtch === false && colorEtch === true && blackWhiteEtch === false) {
+    miniBlock.addEventListener('mouseover', () => {
+      miniBlock.classList.add('colorized-active-etch-block')
+    })
+  } else {
+    miniBlock.addEventListener('mouseover', () => {
+      miniBlock.classList.add('active-etch-block')
+    })
+  }
 }
 
 const createColoredEtchElements = (wrapper) => {
