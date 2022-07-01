@@ -36,7 +36,7 @@ const clearTheGrid = () => {
 const removeCells = (wrapper) => {
   while (wrapper.firstChild) {
     wrapper.removeChild(wrapper.firstChild)
-  };
+  }
 }
 
 const gridInitialize = () => {
@@ -94,6 +94,7 @@ const darkenModeActivate = () => {
   colorEtch = false
   standardEtch = false
   blackWhiteEtch = true
+  opacityValue = 0
   etchSizeDeclaration()
 }
 
@@ -102,7 +103,6 @@ const colorize = (e) => {
   const g = Math.floor(Math.random() * 256)
   const b = Math.floor(Math.random() * 256)
   e.target.style = `background-color: rgb(${r}, ${g}, ${b})`
-  console.log(e)
 }
 
 const darken = (e) => {
@@ -112,8 +112,7 @@ const darken = (e) => {
   let alphaVal = opacityValue / 10
   console.log(alphaVal)
   console.log(opacityValue)
-  console.log(typeof opacityValue)
-  e.target.style = 'background-color: rgba(0,0,0,0.1)'
+  e.target.style = `background-color: rgba(0,0,0,${alphaVal})`
   console.log(e)
 }
 
