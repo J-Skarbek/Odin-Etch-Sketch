@@ -17,7 +17,7 @@ const createEtchElements = (wrapper) => {
         miniBlock.classList.add('active-etch-block')
       })
   } else if (colorEtch === true && standardEtch === false && blackWhiteEtch === false) {
-      miniBlock.addEventListener('mouseover', colorize)
+      miniBlock.addEventListener('mouseover', colorize, {once: true})
   } else {
       miniBlock.addEventListener('mouseover', () => {
         miniBlock.classList.add('active-etch-block')
