@@ -3,38 +3,33 @@ const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
 const wrapper = document.getElementById('project-wrapper')
 
+
 let standardEtch = true
 let colorEtch = false
 let blackWhiteEtch = false
 
 const createEtchElements = (wrapper) => {
-  let miniBlock = document.createElement('div');
+  const miniBlock = document.createElement('div');
   wrapper.appendChild(miniBlock)
-  miniBlock.classList.add('miniBlock', 'grid-items')
+  miniBlock.classList.add('miniBlock')
   if (standardEtch === true && colorEtch === false && blackWhiteEtch === false) {
-    miniBlock.addEventListener('mouseover', () => {
-      miniBlock.classList.add('active-etch-block')
-    })
+      miniBlock.addEventListener('mouseover', () => {
+        miniBlock.classList.add('active-etch-block')
+      })
   } else if (colorEtch === true && standardEtch === false && blackWhiteEtch === false) {
-    miniBlock.addEventListener('mouseover', () => {
-      miniBlock.classList.add('colorized-active-etch-block')
-      colorize()
-    })
+      miniBlock.addEventListener('mouseover', colorize)
   } else {
-    miniBlock.addEventListener('mouseover', () => {
-      miniBlock.classList.add('active-etch-block')
-    })
+      miniBlock.addEventListener('mouseover', () => {
+        miniBlock.classList.add('active-etch-block')
+      })
   }
 }
 
-const createColoredEtchElements = (wrapper) => {
-  let miniBlock = document.createElement('div');
-  wrapper.appendChild(miniBlock)
-  miniBlock.classList.add('miniBlock', 'grid-items')
-  miniBlock.addEventListener('mouseover', () => {
-    miniBlock.classList.add('colorized-active-etch-block')
-  })
-  miniBlock.addEventListener('mouseover', colorize)
+const removeEventListen = (miniBlock) => {
+  let colorCheck = miniBlock.classList.contains('colorized-active-etch-block')
+  if (colorCheck) {
+    miniBlock.removeEventListener('mouseover', test)
+  }
 }
 
 const clearTheGrid = () => {
@@ -63,19 +58,13 @@ const newGridInitialize = (cellSum) => {
   }
 }
 
-const newColorGridInitialize = (cellSum) => {
-  for (let i = 0; i < cellSum; i++) {
-    createColoredEtchElements(wrapper)
-  }
-}
-
 const etchSizeDeclaration = () => {
   let sizeDeclaration = prompt("How big of a grid do you want? (max = 50)")
   validateInput(sizeDeclaration)
 }
 
 const validateInput = (sizeDeclaration) => {
-  if (sizeDeclaration < 50) {
+  if (sizeDeclaration <= 50) {
     etchGridSizing(sizeDeclaration)
     let cellSum = sizeDeclaration * sizeDeclaration
     newGridInitialize(cellSum)
@@ -107,14 +96,26 @@ const colorModeActivate = () => {
   etchSizeDeclaration()
 }
 
-const colorize = () => {
-  const rgbBlocks = Array.from(document.getElementsByClassName('colorized-active-etch-block'))
-  rgbBlocks.forEach(rgbBlocks => {
-    const r = Math.floor(Math.random() * 256)
-    const g = Math.floor(Math.random() * 256)
-    const b = Math.floor(Math.random() * 256)
-    rgbBlocks.style.cssText = `background-color: rgb(${r}, ${g}, ${b})`
-  })
+// const colorize = () => {
+//   const rgbBlocks = Array.from(document.getElementsByClassName('colorized-active-etch-block'))
+  
+//   rgbBlocks.forEach(rgbBlock => {
+//     const r = Math.floor(Math.random() * 256)
+//     const g = Math.floor(Math.random() * 256)
+//     const b = Math.floor(Math.random() * 256)
+//     rgbBlock.style.cssText = `background-color: rgb(${r}, ${g}, ${b})` 
+//   })
+// }
+
+const colorize = (e) => {
+  const r = Math.floor(Math.random() * 256)
+  const g = Math.floor(Math.random() * 256)
+  const b = Math.floor(Math.random() * 256)
+  e.target.style = `background-color: rgb(${r}, ${g}, ${b})`
+  // if (e.eventphaase === 2) {
+  //   removeEventListen(miniBlock)
+  // }
+  console.log(e)
 }
 
 window.addEventListener('load', gridInitialize)
