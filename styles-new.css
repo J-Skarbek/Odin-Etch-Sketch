@@ -123,7 +123,7 @@ p {
     font-size: 1rem;
     color: var(--white);
     background-color: var(--dark-blue);
-    border: 2px var(--white) solid;
+    border: 2px solid var(--white);
     border-radius: 23px;
 }
 
@@ -147,9 +147,6 @@ p {
     grid-row: 12 / span 1;
 }
 
-
-
-
 /* Etch viewport styles */
 
 .project-wrapper{
@@ -159,13 +156,9 @@ p {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     background-color: var(--off-white);
-    border: 5px solid #333333;    
+    border: 5px solid var(--dark-blue);    
 }
 
 .active-etch-block{
     background-color: var(--black);
-}
-
-.colorized-active-etch-block {
-    background-color: var(--white);
 }

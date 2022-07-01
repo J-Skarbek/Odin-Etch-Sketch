@@ -3,10 +3,12 @@ const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
 const wrapper = document.getElementById('project-wrapper')
 
-
+let opacityValue = 0
 let standardEtch = true
 let colorEtch = false
 let blackWhiteEtch = false
+
+//Adds divs based on user input and/or on page initialization
 
 const createEtchElements = (wrapper) => {
   const miniBlock = document.createElement('div');
@@ -19,16 +21,7 @@ const createEtchElements = (wrapper) => {
   } else if (colorEtch === true && standardEtch === false && blackWhiteEtch === false) {
       miniBlock.addEventListener('mouseover', colorize, {once: true})
   } else {
-      miniBlock.addEventListener('mouseover', () => {
-        miniBlock.classList.add('active-etch-block')
-      })
-  }
-}
-
-const removeEventListen = (miniBlock) => {
-  let colorCheck = miniBlock.classList.contains('colorized-active-etch-block')
-  if (colorCheck) {
-    miniBlock.removeEventListener('mouseover', test)
+      miniBlock.addEventListener('mouseover', darken)
   }
 }
 
@@ -96,27 +89,37 @@ const colorModeActivate = () => {
   etchSizeDeclaration()
 }
 
-// const colorize = () => {
-//   const rgbBlocks = Array.from(document.getElementsByClassName('colorized-active-etch-block'))
-  
-//   rgbBlocks.forEach(rgbBlock => {
-//     const r = Math.floor(Math.random() * 256)
-//     const g = Math.floor(Math.random() * 256)
-//     const b = Math.floor(Math.random() * 256)
-//     rgbBlock.style.cssText = `background-color: rgb(${r}, ${g}, ${b})` 
-//   })
-// }
+const darkenModeActivate = () => {
+  clearTheGrid()
+  colorEtch = false
+  standardEtch = false
+  blackWhiteEtch = true
+  etchSizeDeclaration()
+}
 
 const colorize = (e) => {
   const r = Math.floor(Math.random() * 256)
   const g = Math.floor(Math.random() * 256)
   const b = Math.floor(Math.random() * 256)
   e.target.style = `background-color: rgb(${r}, ${g}, ${b})`
-  // if (e.eventphaase === 2) {
-  //   removeEventListen(miniBlock)
-  // }
   console.log(e)
 }
+
+const darken = (e) => {
+  if (opacityValue <= 9) {
+    ++opacityValue
+  }
+  let alphaVal = opacityValue / 10
+  console.log(alphaVal)
+  console.log(opacityValue)
+  console.log(typeof opacityValue)
+  e.target.style = 'background-color: rgba(0,0,0,0.1)'
+  console.log(e)
+}
+
+//238, 249, 251
+// background-color:rgba(255,0,0,0.3)
+// background-color: rgba(0,0,0,0.1)
 
 window.addEventListener('load', gridInitialize)
 
@@ -125,3 +128,6 @@ clearGrid.addEventListener('click', normalModeActivate)
 
 colorMode.addEventListener('click', clearTheGrid)
 colorMode.addEventListener('click', colorModeActivate)
+
+blackWhiteMode.addEventListener('click', clearTheGrid)
+blackWhiteMode.addEventListener('click', darkenModeActivate)
