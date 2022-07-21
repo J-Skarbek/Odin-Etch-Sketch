@@ -62,10 +62,10 @@ table {
 
 body {
     background-color: var(--off-white-bl);
+    font-family: 'Rubik', sans-serif;
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
     font-weight: 800;
     font-size: 3rem;
 }
@@ -75,7 +75,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Rubik', sans-serif;
     font-weight: 400;
 }
 
@@ -84,7 +83,6 @@ button,
 span,
 link,
 p {
-    font-family: 'Rubik', sans-serif;
     font-weight: 300;
 }
 

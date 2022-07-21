@@ -3,7 +3,6 @@ const colorMode = document.getElementById('btn-2')
 const blackWhiteMode = document.getElementById('btn-3')
 const wrapper = document.getElementById('project-wrapper')
 
-let opacityValue = 0
 let standardEtch = true
 let colorEtch = false
 let blackWhiteEtch = false
@@ -20,8 +19,6 @@ const createEtchElements = (wrapper) => {
       })
   } else if (colorEtch === true && standardEtch === false && blackWhiteEtch === false) {
       miniBlock.addEventListener('mouseover', colorize, {once: true})
-  } else {
-      miniBlock.addEventListener('mouseover', darken)
   }
 }
 
@@ -94,8 +91,18 @@ const darkenModeActivate = () => {
   colorEtch = false
   standardEtch = false
   blackWhiteEtch = true
-  opacityValue = 0
   etchSizeDeclaration()
+  const darkenBlocks = Array.from(document.getElementsByClassName('miniBlock'))
+  darkenBlocks.forEach(block => {
+      let opacityValue = 0;
+      block.addEventListener('mouseover', (e) => {
+        if (opacityValue <= 9) {
+          ++opacityValue
+          let alphaVal = opacityValue / 10
+          e.target.style = `background-color: rgba(0,0,0,${alphaVal})`
+        }
+      })
+  })
 }
 
 const colorize = (e) => {
@@ -104,21 +111,6 @@ const colorize = (e) => {
   const b = Math.floor(Math.random() * 256)
   e.target.style = `background-color: rgb(${r}, ${g}, ${b})`
 }
-
-const darken = (e) => {
-  if (opacityValue <= 9) {
-    ++opacityValue
-  }
-  let alphaVal = opacityValue / 10
-  console.log(alphaVal)
-  console.log(opacityValue)
-  e.target.style = `background-color: rgba(0,0,0,${alphaVal})`
-  console.log(e)
-}
-
-//238, 249, 251
-// background-color:rgba(255,0,0,0.3)
-// background-color: rgba(0,0,0,0.1)
 
 window.addEventListener('load', gridInitialize)
 
